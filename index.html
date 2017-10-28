@@ -39,6 +39,24 @@ map.on('click', function(e) {
     .addTo(map);
 });
 
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['processed-places-of-interest'] // replace this with the name of the layer
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<p><b>Type:</b> ' + feature.properties.Theme + '</p><p><b>Subtype:</b> ' + feature.properties.Sub.Theme + '</p><p> <b>Name:</b> ' + feature.properties.Feature.Name + '</p>')
+    .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+});
+
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 </script>
