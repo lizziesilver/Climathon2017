@@ -23,7 +23,7 @@ style: 'mapbox://styles/lizziesilver/cj9aj19mk3f7v2sp89x4ydfhw'
 
 map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['processed_drinking_fountains'] // replace this with the name of the layer
+    layers: ['processed-drinking-fountains'] // replace this with the name of the layer
   });
 
   if (!features.length) {
@@ -40,7 +40,7 @@ map.on('click', function(e) {
 });
 
 // Add zoom and rotation controls to the map.
-//map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.NavigationControl());
 </script>
 
 <h1> Hello! </h1>
