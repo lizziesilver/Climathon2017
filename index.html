@@ -21,7 +21,25 @@ container: 'map',
 style: 'mapbox://styles/lizziesilver/cj9aj19mk3f7v2sp89x4ydfhw'
 });
 
-/*map.on('click', function(e) {
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['processed-places-of-interest-26kq1w'] 
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<p>Name: ' + feature.properties.Name + '</p>')
+    .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+});
+
+map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
     layers: ['processed-drinking-fountains'] 
   });
@@ -37,7 +55,7 @@ style: 'mapbox://styles/lizziesilver/cj9aj19mk3f7v2sp89x4ydfhw'
     .setHTML('<p>' + feature.properties.Description + '</p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
-});*/
+});
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
@@ -59,6 +77,8 @@ map.on('click', function(e) {
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
+
+
 
 //<p><b>Type:</b> ' + feature.properties.Theme + '</p><p><b>Subtype:</b> ' + feature.properties.Sub.Theme + '</p>
 
