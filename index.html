@@ -60,8 +60,8 @@ map.addControl(new mapboxgl.NavigationControl());
 });*/
 
 
-map.on('click', function(e) {
-  var features = map.queryRenderedFeatures(e.point, {
+map.on('click', function(f) {
+  var features = map.queryRenderedFeatures(f.point, {
     layers: ['processed-places-of-interest'] 
   });
 
