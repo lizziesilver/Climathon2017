@@ -21,7 +21,7 @@ container: 'map',
 style: 'mapbox://styles/lizziesilver/cj9aj19mk3f7v2sp89x4ydfhw'
 });
 
-map.on('click', 'processed-drinking-fountains', function(e) {
+/*map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
     layers: ['processed-drinking-fountains'] 
   });
@@ -37,7 +37,7 @@ map.on('click', 'processed-drinking-fountains', function(e) {
     .setHTML('<p>' + feature.properties.Description + '</p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
-});
+});*/
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
@@ -60,7 +60,7 @@ map.addControl(new mapboxgl.NavigationControl());
 });*/
 
 
-map.on('click', 'processed-places-of-interest', function(e) {
+map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
     layers: ['processed-places-of-interest'] 
   });
