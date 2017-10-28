@@ -20,8 +20,6 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/lizziesilver/cj9aj19mk3f7v2sp89x4ydfhw'
 });
-// Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl());
 
 map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
@@ -36,11 +34,13 @@ map.on('click', function(e) {
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<p>' + feature.properties.Description + '</p>')
+    .setHTML('<h3>Description:</h3><p>' + feature.properties.Description + '</p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
 
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
 </script>
 
 <h1> Hello! </h1>
