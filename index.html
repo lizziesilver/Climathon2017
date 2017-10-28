@@ -55,7 +55,7 @@ map.on('click', function(e) {
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<p>' + feature.properties.Feature.Name + '</p>')
+    .setHTML('<p>Name: ' + feature.properties.Feature.Name + '</p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
