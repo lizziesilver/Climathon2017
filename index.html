@@ -21,7 +21,7 @@ container: 'map',
 style: 'mapbox://styles/lizziesilver/cj9aj19mk3f7v2sp89x4ydfhw'
 });
 
-map.on('click', function(e) {
+map.on('click', 'processed-drinking-fountains', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
     layers: ['processed-drinking-fountains'] 
   });
@@ -60,8 +60,8 @@ map.addControl(new mapboxgl.NavigationControl());
 });*/
 
 
-map.on('click', function(f) {
-  var features = map.queryRenderedFeatures(f.point, {
+map.on('click', 'processed-places-of-interest', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
     layers: ['processed-places-of-interest'] 
   });
 
