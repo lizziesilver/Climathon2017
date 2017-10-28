@@ -34,7 +34,7 @@ map.on('click', function(e) {
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<p>Name: ' + feature.properties.Name + '</p>')
+    .setHTML('<p><b>' + feature.properties.Name + '</b></p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
@@ -73,7 +73,7 @@ map.on('click', function(e) {
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<p>Name: ' + feature.properties.Feature.Name + '</p>')
+    .setHTML('<p>' + feature.properties.Feature.Name + '</p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 });
